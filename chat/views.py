@@ -9,16 +9,15 @@ def chat(request):
     
     if request.method == 'POST':
         question = request.POST['chat']
-        openai.api_key = "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"
+        openai.api_key = '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'
         # openai.api_key = os.getenv("MY_KEY")
         response = openai.Completion.create(
         model="text-davinci-003",
         prompt=question,
-        temperature=0.3,
-        max_tokens=150,
+        max_tokens=2000,
         top_p=1.0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0,
+        frequency_penalty=0.52,
+        presence_penalty=0.5,
     )
          
         answer = response['choices'][0].text
