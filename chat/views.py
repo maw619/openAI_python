@@ -4,15 +4,13 @@ import openai
 import json
 from .models import Chat
 
-def home(request):
-    return render(request, 'chat/index.html')
-
-
+ 
 def chat(request): 
     
     if request.method == 'POST':
         question = request.POST['chat']
-        openai.api_key = os.getenv("MY_KEY")
+        openai.api_key = "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"
+        # openai.api_key = os.getenv("MY_KEY")
         response = openai.Completion.create(
         model="text-davinci-003",
         prompt=question,
