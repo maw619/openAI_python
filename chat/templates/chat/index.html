@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+{% comment %} <link href="{% static 'css/signin.css' %}" rel="stylesheet"> {% endcomment %}
+ 
+
+
+{% load static %}
+<br>
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <main class="form-signin w-100 m-auto">
+        <form action="chat/" method="POST" autocomplete=off>
+            {% csrf_token %}
+           
+            <a href="/">
+          <img class="mb-4" src="{% static 'media/holly2.png' %}" alt="" width="72" height="72" style="border-radius:50%;">
+        </a>
+          <h1 class="h3 mb-3 fw-normal"></h1>
+     
+          <div class="form-floating">
+            <input type="text" class="form-control" id="chat" placeholder="" name="chat">
+            <label for="chat"> Ask your question</label>
+          </div>
+      
+          <div class="checkbox mb-3">
+            <label>
+              {% comment %} <input type="checkbox" value="remember-me"> Remember me {% endcomment %}
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-warning" type="submit">Submit</button>
+          
+        </form>
+      </main>
+      <div class="container" style="padding:40px;">
+        {% if data == None %}
+        <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+        {% else %}
+        {{ data }}           
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock content %}
+
+ 
