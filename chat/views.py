@@ -9,9 +9,10 @@ def home(request):
 
 
 def chat(request): 
+    
     if request.method == 'POST':
         question = request.POST['chat']
-        openai.api_key = "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"
+        openai.api_key = os.getenv("MY_KEY")
         response = openai.Completion.create(
         model="text-davinci-003",
         prompt=question,
